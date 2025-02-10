@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Gujarati</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .image-gallery img {
+            width: 100%;
+            max-width: 300px;
+            margin: 10px;
+            border-radius: 8px;
+        }
+        .hidden {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <h2 class="logo">Learn Gujarati</h2>
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="showPage('page1')">Home</a></li>
+                    <li><a href="#" onclick="showPage('page2')">Resources</a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=61566763911694" target="_blank">Social Media</a></li>
+                </ul>    
+            </nav>
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <!-- Page 1 -->
+        <div class="row active" id="page1">
+            <div class="col">
+                <h1>Gujarati With Kanji</h1>
+                <p>Welcome to my page, where you will learn tons of Gujarati!</p>
+            </div>
+        </div>
+
+        <!-- Page 2 -->
+        <div class="row hidden" id="page2">
+            <div class="col">
+                <div class="card">
+                    <h5><a href="#" onclick="showGallery('kaKhaGa')">ka kha ga</a></h5>
+                </div>
+                <div class="card">
+                    <h5><a href="#" onclick="showGallery('aAaEI')">a aa e i</a></h5>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gallery Pages -->
+        <div class="row hidden" id="kaKhaGa">
+            <div class="col image-gallery">
+                <h2>ka kha ga</h2>
+                <img src="images/ka kha ga.png" alt="ka kha ga">
+                <img src="images/ka kha ga 2.png" alt="ka kha ga 2">
+                <img src="images/ka kha ga 3.png" alt="ka kha ga 3">
+                <button onclick="showPage('page2')">Back to Resources</button>
+            </div>
+        </div>
+
+        <div class="row hidden" id="aAaEI">
+            <div class="col image-gallery">
+                <h2>a aa e i</h2>
+                <img src="images/a aa e i.png" alt="a aa e i">
+                <button onclick="showPage('page2')">Back to Resources</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.row').forEach(row => {
+                row.classList.remove('active');
+                row.classList.add('hidden');
+            });
+            const page = document.getElementById(pageId);
+            if (page) {
+                page.classList.remove('hidden');
+                page.classList.add('active');
+            }
+        }
+
+        function showGallery(galleryId) {
+            showPage(galleryId);
+        }
+    </script>
+</body>
+</html>
